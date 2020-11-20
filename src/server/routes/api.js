@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
-
+var { jsonParser } = require("../middleware/parsers")
 /* POST mesurement from device to server. */
-router.get('/measurement', function (req, res, next) {
+router.post('/measurement', jsonParser, function (req, res, next) {
+  // console.log(req.headers);
+  // console.log(req.body);
   console.log(req.body);
-  // res.status(200);
+  res.send("OKAY");
 });
 
 module.exports = router;
